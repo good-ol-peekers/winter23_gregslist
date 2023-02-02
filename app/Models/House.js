@@ -1,13 +1,17 @@
+import { generateId } from "../Utils/generateId.js"
 
+import (generateId)
 
 export class House {
-    constructor(year, name, bedrooms, bathrooms) {
-        this.year = year
-        this.name = name
-        this.bedrooms = bedrooms
-        this.bathrooms = bathrooms
-        this.price = price
-        this.imgUrl = imgUrl
+
+    constructor(data) {
+        this.id = data.id || generateId()
+        this.year = data.year
+        this.name = data.name
+        this.bedrooms = data.bedrooms
+        this.bathrooms = data.bathrooms
+        this.price = data.price
+        this.imgUrl = data.imgUrl
     }
 get HouseCardTemplate() {
      return /*html*/`
@@ -20,5 +24,16 @@ get HouseCardTemplate() {
     </div>
   </div>`
 }
+
+get HouseDetailsTemplate(){
+    `
+    <div><h1>house details template insert here</h1></div>
+    `
 }
 
+static HouseForm(){
+    return '<div><h1>houses form insert here</h1></div>'
+}
+
+
+}

@@ -8,7 +8,15 @@ function _drawHouses(){
   appState.houses.forEach(home => template += home.HouseCardTemplate)
   setHTML('listings', template);
 }
+function _drawHouse() {
 
+  setText('listingModalLabel', `${appState.house.name} ${appState.house.year}`)
+  setHTML('listing-modal-body', appState.house.HouseDetailsTemplate)
+
+  // listingModalLabel
+  // 'listing-modal-body'
+
+}
 
 
 export class HousesController {
@@ -16,10 +24,17 @@ export class HousesController {
 
   constructor() {
     this.show()
-    console.log('Hello this is the houses Controller')
+    appState.on('cars', _drawHouses)
+    appState.on('car', _drawhouse)
+    // console.log('Hello this is the houses Controller')
   }
 
   show(){
+    setText('add-listing-button', 'a new House?')
+    setText('listingFormLabel', 'new houses for you!')
+
+    setHTML('the-actual-form', house.houseForm())
+
     _drawHouses()
     console.log('TODO houses')
   }

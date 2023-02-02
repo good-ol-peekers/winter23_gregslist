@@ -13,8 +13,12 @@ class AppState extends EventEmitter {
   cars = loadState('cars', [Car])
   /** @type {import('./Models/Car').Car} */
   car = null
-  
-  houses = []
+
+
+  /** @type {import('./Models/house').house[]} */
+  houses = loadState('houses', [House])
+  /** @type {import('./Models/house').house} */
+  house = null
 }
 
 export const appState = new Proxy(new AppState(), {
